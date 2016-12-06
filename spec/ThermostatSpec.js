@@ -25,4 +25,11 @@ describe("Thermostat", function(){
     }
       expect(thermostat.getTemperature()).toEqual(10)
   });
+
+  it("should not increase more than 25 degrees", function(){
+    for (var i = 0; i <10; i++){
+      thermostat.up();
+    }
+    expect(thermostat.getTemperature()).toEqual(25);
+  });
 });
