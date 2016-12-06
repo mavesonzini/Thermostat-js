@@ -18,4 +18,11 @@ describe("Thermostat", function(){
     thermostat.down();
     expect(thermostat.getTemperature()).toEqual(19);
   });
+
+  it("should not decrease more than 10 degrees", function(){
+    for (var i = 1; i <= 20; i++){
+      thermostat.down();
+    }
+      expect(thermostat.getTemperature()).toEqual(10)
+  });
 });
