@@ -32,4 +32,12 @@ describe("Thermostat", function(){
     }
     expect(thermostat.getTemperature()).toEqual(25);
   });
+
+  it("should increase up to 32 degrees if saving mode is off", function(){
+    thermostat.isPowerSaving = false;
+    for (var i = 0; i < 12; i++){
+      thermostat.up();
+    }
+    expect(thermostat.getTemperature()).toEqual(32);
+  });
 });

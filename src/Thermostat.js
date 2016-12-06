@@ -9,7 +9,12 @@ Thermostat.prototype.getTemperature = function(){
 }
 
 Thermostat.prototype.maximumTemperature = function(){
-  return 25;
+  if (this.isPowerSaving){
+    return 25;
+  } else {
+    return 32;
+  }
+
 }
 
 Thermostat.prototype.up  = function(){
