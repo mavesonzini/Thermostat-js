@@ -27,3 +27,20 @@ describe("Temperature on thermostat", function(){
     expect(thermostat.getTemperature()).toEqual(10);
   });
 });
+
+describe("Power saving mode on", function(){
+
+  var thermostat;
+
+  beforeEach(function(){
+    thermostat = new Thermostat();
+    this.powerSaving = true;
+  });
+
+  it("max temperature should be 25 degrees", function(){
+    for(var i = 0; i < 7; i++){
+      thermostat.up();
+    }
+    expect(thermostat.getTemperature()).toEqual(25);
+  });
+});
