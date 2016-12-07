@@ -60,3 +60,15 @@ describe("Power saving mode Off", function(){
     expect(thermostat.getTemperature()).toEqual(32);
   });
 });
+
+describe("Switch power saving on or off", function(){
+  var thermostat;
+
+  beforeEach(function(){
+    thermostat = new Thermostat();
+  });
+  it("switches power saving off", function(){
+    thermostat.powerSavingSwitch();
+    expect(thermostat.powerSaving).toEqual(false);
+  });
+});
