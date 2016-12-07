@@ -34,7 +34,6 @@ describe("Power saving mode on", function(){
 
   beforeEach(function(){
     thermostat = new Thermostat();
-    this.powerSaving = true;
   });
 
   it("max temperature should be 25 degrees", function(){
@@ -42,5 +41,22 @@ describe("Power saving mode on", function(){
       thermostat.up();
     }
     expect(thermostat.getTemperature()).toEqual(25);
+  });
+});
+
+describe("Power saving mode Off", function(){
+
+  var thermostat;
+
+  beforeEach(function(){
+    thermostat = new Thermostat();
+  });
+
+  it("max temperature should be 32 degrees", function(){
+    thermostat.powerSavingSwitch();
+    for(var i = 0; i < 20; i++){
+      thermostat.up();
+    }
+    expect(thermostat.getTemperature()).toEqual(32);
   });
 });
