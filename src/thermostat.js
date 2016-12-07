@@ -9,19 +9,18 @@ Thermostat.prototype.getTemperature = function(){
 
 Thermostat.prototype.up = function(){
   if(this.powerSaving === true){
-    if(this.temperature < 25){
+    if(this.getTemperature() < 25){
       return this.temperature++;
     }
   } else {
-    if (this.temperature < 32){
+    if (this.getTemperature() < 32){
       return this.temperature++;
     }
   }
-
 }
 
 Thermostat.prototype.down = function(){
-  if(this.temperature > 10){
+  if(this.getTemperature() > 10){
     return this.temperature--;
   }
 }
@@ -32,4 +31,16 @@ Thermostat.prototype.powerSavingSwitch = function(){
 
 Thermostat.prototype.reset = function(){
   return this.temperature = 20;
+};
+
+Thermostat.prototype.energyUsageStatus = function(){
+  if(this.getTemperature() < 18){
+    return("low-usage");
+  }
+  else if(this.getTemperature() < 25){
+    return("medium-usage");
+  }
+  else if(this.getTemperature() < 32){
+    return("high-usage");
+  }
 }

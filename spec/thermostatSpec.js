@@ -62,16 +62,19 @@ describe("Power saving mode Off", function(){
 });
 
 describe("Switch power saving on or off", function(){
+
   var thermostat;
 
   beforeEach(function(){
     thermostat = new Thermostat();
   });
+
   it("switches power saving off", function(){
     thermostat.powerSavingSwitch();
     expect(thermostat.powerSaving).toEqual(false);
   });
 });
+
 
 describe("reset temperature", function(){
   var thermostat;
@@ -86,5 +89,29 @@ describe("reset temperature", function(){
     }
     thermostat.reset();
     expect(thermostat.getTemperature()).toEqual(20);
+  });
+});
+
+describe("Energy usage reports", function(){
+
+  var thermostat;
+
+  beforeEach(function(){
+    thermostat = new Thermostat();
+  });
+
+  it("reports low usage when temperature (t) |10 < t < 18|", function(){
+    spyOn(thermostat, "getTemperature").and.returnValue(17);
+    expect(thermostat.energyUsageStatus()).toEqual("low-usage");
+  });
+
+  it("reports medium usage when temperature (t) |18 < t < 25|", function(){
+    spyOn(thermostat, "getTemperature").and.returnValue(22);
+    expect(thermostat.energyUsageStatus()).toEqual("medium-usage");
+  });
+
+  it("reports medium usage when temperature (t) |25 < t < 33|", function(){
+    spyOn(thermostat, "getTemperature").and.returnValue(27);
+    expect(thermostat.energyUsageStatus()).toEqual("high-usage");
   });
 });
