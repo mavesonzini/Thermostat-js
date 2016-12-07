@@ -19,4 +19,11 @@ describe("Temperature on thermostat", function(){
     thermostat.down();
     expect(thermostat.getTemperature()).toEqual(19);
   });
+
+  it("shouldn't decrease under 10 degrees", function(){
+    for(var i = 20; i > 7; i--){
+      thermostat.down();
+    }
+    expect(thermostat.getTemperature()).toEqual(10);
+  });
 });
