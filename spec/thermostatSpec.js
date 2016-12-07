@@ -72,3 +72,19 @@ describe("Switch power saving on or off", function(){
     expect(thermostat.powerSaving).toEqual(false);
   });
 });
+
+describe("reset temperature", function(){
+  var thermostat;
+
+  beforeEach(function(){
+    thermostat = new Thermostat();
+  });
+
+  it("resets the temperature to 20 degrees when", function(){
+    for(var i = 0; i < 5; i++){
+      thermostat.up();
+    }
+    thermostat.reset();
+    expect(thermostat.getTemperature()).toEqual(20);
+  });
+});
