@@ -27,6 +27,9 @@ $( document ).ready(function() {
      $('#power-saving-status').text(thermostat.savingModeOff());
    })
 
-
+function updateTemperature(){
+  $('#temperature').text(thermostat._temperature);
+  $('#temperature').attr('class', thermostat.energyUsage());
+}
 
 })
