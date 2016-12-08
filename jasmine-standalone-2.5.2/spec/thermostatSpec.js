@@ -35,4 +35,12 @@ describe('Thermostat', function() {
     }
     expect(thermostat.temperature()).toEqual(10);
   });
+
+  it('should have maximun of 25 degrees if saving mode is on', function(){
+      this._savingMode = true
+    for(var i = 0; i < 6; i++){
+      thermostat.up();
+    }
+    expect(thermostat.temperature()).toEqual(25);
+  });
 });

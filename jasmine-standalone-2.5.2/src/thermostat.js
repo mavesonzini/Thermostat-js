@@ -1,5 +1,6 @@
 function Thermostat(){
   this._temperature = 20;
+  this._savingMode = true;
 }
 
 Thermostat.prototype.temperature = function() {
@@ -7,7 +8,11 @@ Thermostat.prototype.temperature = function() {
 };
 
 Thermostat.prototype.up = function() {
-  this._temperature ++;
+  if(this._savingMode === true){
+    if(this._temperature < 25){
+      this._temperature ++;
+    }
+  }
 };
 
 Thermostat.prototype.down = function() {
