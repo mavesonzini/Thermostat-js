@@ -56,4 +56,8 @@ describe('Thermostat', function() {
     thermostat.reset();
     expect(thermostat.temperature()).toEqual(20);
   });
+
+  it('You can ask about the thermostat\'s current energy usage', function() {
+    expect(thermostat.energyUsage()).toEqual('medium-usage');
+  });
 });

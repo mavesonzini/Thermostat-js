@@ -30,3 +30,14 @@ Thermostat.prototype.savingMode = function() {
 Thermostat.prototype.reset = function(){
   this._temperature;
 }
+
+Thermostat.prototype.energyUsage = function(){
+  if(this._temperature < 18){
+    return 'low-usage';
+  }
+  else if(this._temperature < 25){
+    return 'medium-usage';
+  }else{
+  return 'high-usage';
+}
+};
