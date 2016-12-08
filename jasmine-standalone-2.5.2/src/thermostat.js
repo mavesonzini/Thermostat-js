@@ -23,12 +23,18 @@ Thermostat.prototype.down = function() {
 }
 };
 
-Thermostat.prototype.savingMode = function() {
-  this._savingMode = !this._savingMode;
+Thermostat.prototype.savingModeOn = function() {
+  this._savingMode = true;
+  return 'On'
+}
+
+Thermostat.prototype.savingModeOff = function() {
+  this._savingMode = false;
+  return 'Off'
 }
 
 Thermostat.prototype.reset = function(){
-  this._temperature;
+  this._temperature = 20;
 }
 
 Thermostat.prototype.energyUsage = function(){
