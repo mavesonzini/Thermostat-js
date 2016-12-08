@@ -26,3 +26,7 @@ Thermostat.prototype.down = function() {
 Thermostat.prototype.savingMode = function() {
   this._savingMode = !this._savingMode;
 }
+
+Thermostat.prototype.reset = function(){
+  this._temperature;
+}
