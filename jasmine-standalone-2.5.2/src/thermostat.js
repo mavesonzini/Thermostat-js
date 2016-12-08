@@ -12,7 +12,9 @@ Thermostat.prototype.up = function() {
     if(this._temperature < 25){
       this._temperature ++;
     }
-  }
+  }else if(this._temperature < 30){
+      this._temperature ++;
+    }
 };
 
 Thermostat.prototype.down = function() {
@@ -20,3 +22,7 @@ Thermostat.prototype.down = function() {
   this._temperature --;
 }
 };
+
+Thermostat.prototype.savingMode = function() {
+  this._savingMode = !this._savingMode;
+}
