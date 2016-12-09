@@ -1,12 +1,32 @@
+body {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
 
 .low-usage {
-  color: green;
+  font-size: 100px;
+  color: white;
 }
 
 .medium-usage {
+  font-size: 100px;
   color: black;
 }
 
 .high-usage {
-  color: red;
+  font-size: 100px;
+  color: white;
+}
+
+.low-usage-body {
+  background-color: green;
+}
+
+.medium-usage-body {
+  background-color: white;
+}
+
+.high-usage-body {
+  background-color: red;
 }

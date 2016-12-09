@@ -1,20 +1,21 @@
 $( document ).ready(function() {
   var thermostat = new Thermostat();
+  updateTemperature();
    $('#temperature').text(thermostat._temperature);
 
    $('#temperature-up').on('click', function () {
      thermostat.up();
-     $('#temperature').text(thermostat._temperature);
+     updateTemperature();
    })
 
    $('#temperature-down').on('click', function () {
      thermostat.down();
-     $('#temperature').text(thermostat._temperature);
+     updateTemperature();
    })
 
    $('#temperature-reset').on('click', function () {
      thermostat.reset();
-     $('#temperature').text(thermostat._temperature);
+     updateTemperature();
    })
 
    $('#powersaving-on').on('click', function () {
@@ -48,6 +49,9 @@ $('#select-city').submit(function(event) {
 function updateTemperature(){
   $('#temperature').text(thermostat._temperature);
   $('#temperature').attr('class', thermostat.energyUsage());
+  $('#body-color').attr('class', thermostat.energyUsage() + '-body');
 }
+
+
 
 })
