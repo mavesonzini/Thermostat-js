@@ -30,3 +30,18 @@ body {
 .high-usage-body {
   background-color: red;
 }
+
+.button {
+  background-color: grey;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+.text-field {
+  font-size: 20px;
+}
+
+.power-saving {
+  font-size: 25px;
+}
